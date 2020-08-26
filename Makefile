@@ -1,8 +1,4 @@
-THIS_FILE := $(lastword $(MAKEFILE_LIST))
-
-init:
-	@$(MAKE) -f $(THIS_FILE) docker-build
-	@$(MAKE) -f $(THIS_FILE) composer-install
+init: docker-build composer-install
 	docker-compose exec php cp .env.example .env
 	docker-compose exec php php artisan key:generate
 

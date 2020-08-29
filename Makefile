@@ -2,13 +2,13 @@ init: docker-build composer-install
 	docker-compose exec php cp .env.example .env
 	docker-compose exec php php artisan key:generate
 
-docker-up: memory
+docker-up:
 	docker-compose up -d site
 
 docker-down:
 	docker-compose down
 
-docker-build: memory
+docker-build:
 	docker-compose up -d --build site
 
 composer-install:
@@ -20,6 +20,4 @@ assets-install:
 assets-dev:
 	docker-compose run --rm npm run dev
 
-memory:
-	sudo sysctl -w vm.max_map_count=262144
 

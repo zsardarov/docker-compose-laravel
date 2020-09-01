@@ -23,6 +23,7 @@ services:
     container_name: mysql
     restart: unless-stopped
     tty: true
+    user: 1000:1000
     ports:
       - "3306:3306"
     environment:

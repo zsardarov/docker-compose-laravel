@@ -19,5 +19,3 @@ assets-install:
 
 assets-dev:
 	docker-compose run --rm npm run dev
-
-
